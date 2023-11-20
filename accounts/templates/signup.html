@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% Block title %}Sign up{% endlook %}
+      (% block contents %)
+      <hr>
+      <div class="container">
+        <div class="row">
+            <div class="col offset-2">
+                <h3>サインアップ</h3>
+                <form mathod = "post">
+                    (% csrf_token %)
+                    (% for field in form %)
+                    <p>
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% if field help_text %}
+                          <small style="color: gray">{{ fieldhelp_text }}</small>
+                          {% endif %}
+                          <p style="color: red">{{ error }}</p>
+                          {% endfor %}
+                    </p>
+                    {% endfor %}
+                    <p style="color:red">
+                      </p>
+                    <input type="submit" value="Sign up">
+                    </form>
+                    
+                    <br>
+                  <p><a href="{% url 'photo:index' %}">
+                    登録をやめてトップページに戻る</a>
+                    </p>
+                  </div>
+            </div>
+        </div>
+        {% endlock %}
+        
